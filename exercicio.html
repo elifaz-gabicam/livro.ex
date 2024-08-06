@@ -102,3 +102,24 @@
     <a href="{{ url_for('listar_livros') }}">Voltar à Lista</a>
 </body>
 </html>
+
+
+class Livro(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String(200), nullable=False)
+    autor = db.Column(db.String(200), nullable=False)
+    categoria = db.Column(db.String(100), nullable=False)
+    ano = db.Column(db.Integer, nullable=False)
+    editora = db.Column(db.String(200), default="Sem Editora")
+    ativo = db.Column(db.Boolean, default=False)
+
+    def __init__(self, titulo, autor, categoria, ano, editora="Sem Editora", ativo=False):
+        self.titulo = titulo
+        self.autor = autor
+        self.categoria = categoria
+        self.ano = ano
+        self.editora = editora
+        self.ativo = ativo
+
+    def __repr__(self):
+        return f"<Livro {self.titulo}>"
