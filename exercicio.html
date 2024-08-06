@@ -3,61 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Bem-vindo ao Meu Projeto De banco de dados!</h1>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Livros</title>
-</head>
-<body>
-    <h1>Lista de Livros</h1>
-    <a href="{{ url_for('adicionar_livro') }}">Adicionar Novo Livro</a>
-    <ul>
-        {% for livro in livros %}
-            <li>
-                {{ livro.titulo }} - {{ livro.autor }} ({{ livro.ano }})
-                <a href="{{ url_for('atualizar_livro', id=livro.id) }}">Editar</a>
-                <a href="{{ url_for('deletar_livro', id=livro.id) }}">Excluir</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Livros</title>
-</head>
-<body>
-    <h1>Lista de Livros</h1>
-    <a href="{{ url_for('adicionar_livro') }}">Adicionar Novo Livro</a>
-    <ul>
-        {% for livro in livros %}
-            <li>
-                {{ livro.titulo }} - {{ livro.autor }} ({{ livro.ano }})
-                <a href="{{ url_for('atualizar_livro', id=livro.id) }}">Editar</a>
-                <a href="{{ url_for('deletar_livro', id=livro.id) }}">Excluir</a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Livro</title>
 </head>
 <body>
@@ -69,15 +14,23 @@
         <label for="autor">Autor:</label>
         <input type="text" id="autor" name="autor" required>
         <br>
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" required>
+        <br>
         <label for="ano">Ano:</label>
         <input type="number" id="ano" name="ano" required>
+        <br>
+        <label for="editora">Editora:</label>
+        <input type="text" id="editora" name="editora">
+        <br>
+        <label for="ativo">Ativo:</label>
+        <input type="checkbox" id="ativo" name="ativo">
         <br>
         <button type="submit">Adicionar</button>
     </form>
     <a href="{{ url_for('listar_livros') }}">Voltar à Lista</a>
 </body>
 </html>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,8 +47,17 @@
         <label for="autor">Autor:</label>
         <input type="text" id="autor" name="autor" value="{{ livro.autor }}" required>
         <br>
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" value="{{ livro.categoria }}" required>
+        <br>
         <label for="ano">Ano:</label>
         <input type="number" id="ano" name="ano" value="{{ livro.ano }}" required>
+        <br>
+        <label for="editora">Editora:</label>
+        <input type="text" id="editora" name="editora" value="{{ livro.editora }}">
+        <br>
+        <label for="ativo">Ativo:</label>
+        <input type="checkbox" id="ativo" name="ativo" {% if livro.ativo %}checked{% endif %}>
         <br>
         <button type="submit">Atualizar</button>
     </form>
@@ -103,23 +65,3 @@
 </body>
 </html>
 
-
-class Livro(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    titulo = db.Column(db.String(200), nullable=False)
-    autor = db.Column(db.String(200), nullable=False)
-    categoria = db.Column(db.String(100), nullable=False)
-    ano = db.Column(db.Integer, nullable=False)
-    editora = db.Column(db.String(200), default="Sem Editora")
-    ativo = db.Column(db.Boolean, default=False)
-
-    def __init__(self, titulo, autor, categoria, ano, editora="Sem Editora", ativo=False):
-        self.titulo = titulo
-        self.autor = autor
-        self.categoria = categoria
-        self.ano = ano
-        self.editora = editora
-        self.ativo = ativo
-
-    def __repr__(self):
-        return f"<Livro {self.titulo}>"
