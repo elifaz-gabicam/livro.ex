@@ -8,19 +8,26 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f9f9f9;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: left;
+            vertical-align: middle;
         }
         th {
             background-color: #f4f4f4;
+            font-weight: bold;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
@@ -28,69 +35,65 @@
         tr:hover {
             background-color: #f1f1f1;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        thead {
+            display: table-header-group;
         }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
+        tbody {
+            display: table-row-group;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Lista de Livros</h1>
-        <p>Página para listar os Livros da Biblioteca do Senai</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Livro</th>
-                    <th>Autor</th>
-                    <th>Ano</th>
-                    <th>Categoria</th>
-                    <th>Ativo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Código Limpo</td>
-                    <td>Robert Cecil Martin</td>
-                    <td>2012</td>
-                    <td>Programação</td>
-                    <td>Sim</td>
-                </tr>
-                <tr>
-                    <td>Refatoração: Aperfeiçoando o Design de Códigos Existentes</td>
-                    <td>Martin Fowler, Kent Beck</td>
-                    <td>1999</td>
-                    <td>Projetos</td>
-                    <td>Sim</td>
-                </tr>
-                <tr>
-                    <td>Design Patterns: Elements of Reusable Object-Oriented</td>
-                    <td>Erich Gamma</td>
-                    <td>1994</td>
-                    <td>Programação</td>
-                    <td>Sim</td>
-                </tr>
-                <tr>
-                    <td>O Programador Apaixonado: Construindo uma carreira</td>
-                    <td>Chad Fowler</td>
-                    <td>2014</td>
-                    <td>Programação</td>
-                    <td>Sim</td>
-                </tr>
-                <tr>
-                    <td>O universo da programação: Um guia de carreira em desenvolvimento de software</td>
-                    <td>William Oliveira</td>
-                    <td>2018</td>
-                    <td>Auto Ajuda</td>
-                    <td>Sim</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h1>Lista de Livros</h1>
+    <p>Página para listar os Livros da Biblioteca do Senai</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Categoria</th>
+                <th>Ativo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Código Limpo</td>
+                <td>Robert Cecil Martin</td>
+                <td>2012</td>
+                <td>Programação</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Refatoração: Aperfeiçoando o Design de Códigos Existentes</td>
+                <td>Martin Fowler, Kent Beck</td>
+                <td>1999</td>
+                <td>Projetos</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>Design Patterns: Elements of Reusable Object-Oriented</td>
+                <td>Erich Gamma</td>
+                <td>1994</td>
+                <td>Programação</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>O Programador Apaixonado: Construindo uma carreira</td>
+                <td>Chad Fowler</td>
+                <td>2014</td>
+                <td>Programação</td>
+                <td>Sim</td>
+            </tr>
+            <tr>
+                <td>O universo da programação: Um guia de carreira em desenvolvimento de software</td>
+                <td>William Oliveira</td>
+                <td>2018</td>
+                <td>Auto Ajuda</td>
+                <td>Sim</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
+
