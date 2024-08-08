@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <!-- Charset utf-8 para corrigir problemas de caracter especiais -->
+<html lang="pt-BR">
+<head>
+    <!-- Charset utf-8 para corrigir problemas de caracteres especiais -->
     <meta charset="utf-8" />
     <title>Biblioteca</title>
-    <!-- Importação da Biblioteca CSS do Vanilla -->
+    <!-- Importação da Biblioteca CSS do Vanilla DataTables -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.js"></script>
-    <!-- Importação da Biblioteca CSS do Vanilla -->
 
-    <!-- Estilo usando CDN para o bootstrap-->
+    <!-- Estilo usando CDN para o Bootstrap -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -22,54 +21,81 @@
     <style>
       footer {
         text-align: center;
+        margin-top: 20px;
+        padding: 10px 0;
+        background-color: #f8f9fa;
+      }
+      .table-container {
+        margin-top: 20px;
+      }
+      .page-header {
+        margin-bottom: 20px;
+      }
+      .url {
+        margin-bottom: 20px;
+        display: inline-block;
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <div class="page-header">
-        <h1>{{ titulo }}</h1>
-      </div>
-      <a class="url" href="/curriculo">Currículo</a><br />
-      <table class="table table-striped table-hover">
-        <thead class="thead-default">
-          <tr>
-            <th>Livro</th>
-            <th>Autor</th>
-            <th>Categoria</th>
-            <th>Ano</th>
-            <th>Editora</th>
-            <th>Ativo</th>
-          </tr>
-            <th>Alice no país das maravilhas</th>
-            <th>Andressa cort</th>
-            <th>Infantil</th>
-            <th>2010</th>
-            <th>Aprende brasil</th>
-            <th>Não está ativo</th>
-          <tr>
-            <td>Tropa de elite</td>
-            <td>Marcos</td>
-            <td>Ação policial</td>
-            <td>2010</td>
-            <td>TV record</td>
-            <td>sim</td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="row">
+            <div class="col-12">
+                <div class="page-header">
+                    <h1>{{ titulo }}</h1>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <a class="url btn btn-primary" href="/curriculo">Currículo</a>
+            </div>
+            <div class="col-12 table-container">
+                <!-- Tabela -->
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Livro</th>
+                            <th>Autor</th>
+                            <th>Categoria</th>
+                            <th>Ano</th>
+                            <th>Editora</th>
+                            <th>Ativo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alice no País das Maravilhas</td>
+                            <td>Andressa Cort</td>
+                            <td>Infantil</td>
+                            <td>2010</td>
+                            <td>Aprende Brasil</td>
+                            <td>Não está ativo</td>
+                        </tr>
+                        <tr>
+                            <td>Tropa de Elite</td>
+                            <td>Marcos</td>
+                            <td>Ação Policial</td>
+                            <td>2010</td>
+                            <td>TV Record</td>
+                            <td>Sim</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <footer>
-      <p>&copy; 2024 SENAI. Todos os direitos reservados.</p>
+        <p>&copy; 2024 SENAI. Todos os direitos reservados.</p>
     </footer>
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var tabela = document.querySelector(".table");
-        var dataTable = new DataTable(tabela, {
+        new DataTable(tabela, {
           searchable: true, // Habilita a pesquisa
           sortable: true, // Habilita a ordenação
           perPage: 5, // Define 5 linhas por página
           columns: [
-            { select: 0, sort: "desc" }, // Ordena a primeira coluna em ordem ascendente
+            { select: 0, sort: "asc" }, // Ordena a primeira coluna em ordem ascendente
           ],
           labels: {
             placeholder: "Pesquisar...", // Texto do placeholder da barra de pesquisa
@@ -80,6 +106,7 @@
         });
       });
     </script>
+
     <script type="module">
       import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js";
 
@@ -91,5 +118,5 @@
         },
       });
     </script>
-  </body>
+</body>
 </html>
