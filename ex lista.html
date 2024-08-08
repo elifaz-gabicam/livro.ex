@@ -1,30 +1,114 @@
-<table class="table table-striped table-hover">
-  <thead class="thead-default">
-    <tr>
-      <th>Livro</th>
-      <th>Autor</th>
-      <th>Categoria</th>
-      <th>Ano</th>
-      <th>Editora</th>
-      <th>Ativo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Alice no país das maravilhas</td>
-      <td>Andressa Cort</td>
-      <td>Infantil</td>
-      <td>2010</td>
-      <td>Aprende Brasil</td>
-      <td>Não está ativo</td>
-    </tr>
-    <tr>
-      <td>Tropa de elite</td>
-      <td>Marcos</td>
-      <td>Ação policial</td>
-      <td>2010</td>
-      <td>TV Record</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Charset utf-8 para corrigir problemas de caracteres especiais -->
+    <meta charset="utf-8" />
+    <title>Biblioteca</title>
+    <!-- Importação da Biblioteca CSS do Vanilla DataTables -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@latest/dist/vanilla-dataTables.min.js"></script>
+
+    <!-- Estilo usando CDN para o Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+
+    <!-- Estilo usando CSS interno -->
+    <style>
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px 0;
+        background-color: #f8f9fa;
+      }
+      .table-container {
+        margin-top: 20px;
+      }
+      .page-header {
+        margin-bottom: 20px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{ titulo }}</h1>
+        </div>
+        <a class="url btn btn-primary" href="/curriculo">Currículo</a>
+
+        <div class="table-container">
+          <!-- Tabela -->
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Categoria</th>
+                <th>Ano</th>
+                <th>Editora</th>
+                <th>Ativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alice no País das Maravilhas</td>
+                <td>Andressa Cort</td>
+                <td>Infantil</td>
+                <td>2010</td>
+                <td>Aprende Brasil</td>
+                <td>Não está ativo</td>
+              </tr>
+              <tr>
+                <td>Tropa de Elite</td>
+                <td>Marcos</td>
+                <td>Ação Policial</td>
+                <td>2010</td>
+                <td>TV Record</td>
+                <td>Sim</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 SENAI. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var tabela = document.querySelector(".table");
+        new DataTable(tabela, {
+          searchable: true, // Habilita a pesquisa
+          sortable: true, // Habilita a ordenação
+          perPage: 5, // Define 5 linhas por página
+          columns: [
+            { select: 0, sort: "asc" }, // Ordena a primeira coluna em ordem ascendente
+          ],
+          labels: {
+            placeholder: "Pesquisar...", // Texto do placeholder da barra de pesquisa
+            perPage: "{select} resultados por página", // Texto da seleção de itens por página
+            noRows: "Nenhum resultado encontrado", // Texto quando não há resultados
+            info: "Mostrando {start} a {end} de {rows} resultados", // Texto de informações
+          },
+        });
+      });
+    </script>
+
+    <script type="module">
+      import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js";
+
+      Typebot.initBubble({
+        typebot: "treinamento-a-9-hc4l8iw",
+        theme: {
+          button: { backgroundColor: "#0042DA", size: "large" },
+          chatWindow: { backgroundColor: "#fff" },
+        },
+      });
+    </script>
+</body>
+</html>
+
