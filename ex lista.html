@@ -31,56 +31,47 @@
       .page-header {
         margin-bottom: 20px;
       }
-      .url {
-        margin-bottom: 20px;
-        display: inline-block;
-      }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="page-header">
-                    <h1>{{ titulo }}</h1>
-                </div>
-            </div>
-            <div class="col-12 text-center">
-                <a class="url btn btn-primary" href="/curriculo">Currículo</a>
-            </div>
-            <div class="col-12 table-container">
-                <!-- Tabela -->
-                <table class="table table-striped table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Livro</th>
-                            <th>Autor</th>
-                            <th>Categoria</th>
-                            <th>Ano</th>
-                            <th>Editora</th>
-                            <th>Ativo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Alice no País das Maravilhas</td>
-                            <td>Andressa Cort</td>
-                            <td>Infantil</td>
-                            <td>2010</td>
-                            <td>Aprende Brasil</td>
-                            <td>Não está ativo</td>
-                        </tr>
-                        <tr>
-                            <td>Tropa de Elite</td>
-                            <td>Marcos</td>
-                            <td>Ação Policial</td>
-                            <td>2010</td>
-                            <td>TV Record</td>
-                            <td>Sim</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="page-header">
+            <h1>{{ titulo }}</h1>
+        </div>
+        <a class="url btn btn-primary" href="/curriculo">Currículo</a>
+
+        <div class="table-container">
+          <!-- Tabela -->
+          <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Categoria</th>
+                <th>Ano</th>
+                <th>Editora</th>
+                <th>Ativo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alice no País das Maravilhas</td>
+                <td>Andressa Cort</td>
+                <td>Infantil</td>
+                <td>2010</td>
+                <td>Aprende Brasil</td>
+                <td>Não está ativo</td>
+              </tr>
+              <tr>
+                <td>Tropa de Elite</td>
+                <td>Marcos</td>
+                <td>Ação Policial</td>
+                <td>2010</td>
+                <td>TV Record</td>
+                <td>Sim</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     </div>
     <footer>
